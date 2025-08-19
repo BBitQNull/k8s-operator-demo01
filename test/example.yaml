@@ -1,0 +1,7 @@
+apiVersion: example.bbitqnull.com/v1
+kind: CronJob
+metadata:
+  name: example-cr
+  namespace: example-space-cr
+spec:
+  target: 5
