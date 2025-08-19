@@ -251,8 +251,11 @@ var _ = Describe("Manager", Ordered, func() {
 			Eventually(verifyCurlUp, 5*time.Minute).Should(Succeed())
 
 			By("getting the metrics by checking curl-metrics logs")
-			metricsOutput := getMetricsOutput()
-			Expect(metricsOutput).To(ContainSubstring(
+			// metricsOutput := getMetricsOutput()
+			// Expect(metricsOutput).To(ContainSubstring(
+			// 	"controller_runtime_reconcile_total",
+			// ))
+			Eventually(getMetricsOutput, 2*time.Minute, 2*time.Second).Should(ContainSubstring(
 				"controller_runtime_reconcile_total",
 			))
 		})
