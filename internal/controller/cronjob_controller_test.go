@@ -51,7 +51,9 @@ var _ = Describe("CronJob Controller", func() {
 						Name:      resourceName,
 						Namespace: "default",
 					},
-					// TODO(user): Specify other spec details if needed.
+					Spec: examplev1.CronJobSpec{
+						Target: 5,
+					},
 				}
 				Expect(k8sClient.Create(ctx, resource)).To(Succeed())
 			}
